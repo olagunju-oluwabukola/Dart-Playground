@@ -57,7 +57,9 @@ void main() async {
   //   print(p.userId);
   // });
 
-  fetchPost();
+  final post = await fetchPost();
+  print(post.title);
+  print(post.userId);
 }
 
 class menuItem {
@@ -98,10 +100,12 @@ class collection<T> {
   }
 }
 
-fetchPost() async {
+Future<post> fetchPost() async {
   var uri = Uri.https('jsonplaceholder.typicode.com', '/posts/1/');
   final response = await http.get(uri);
-  print(response.body);
+  // print(response.body);
+  Map<String, dynamic> data = convert.jsonDecode(response.body);
+  return post(data["title"], data["userId"]);
 }
 
 class post {
