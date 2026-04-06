@@ -80,6 +80,13 @@ void main() {
 
   bool isOrderComplete = orderBaxooka();
   print("OrderStatus: $isOrderComplete");
+
+  Duck NewDuck = Duck("Brown", 10);
+  Duck Duck_2 = Duck("Amber", 12);
+  NewDuck.PrintDuck();
+  Duck_2.PrintDuck();
+  print("Color of Duck is:" + Duck_2.color);
+  print(Duck_2.weight);
 }
 
 class BarDetails {
@@ -91,5 +98,18 @@ class BarDetails {
 
   void Check() {
     print("Barista : $name, Experience: $yoe");
+  }
+}
+
+class Duck {
+  String color;
+  int weight;
+
+  // constructor
+  Duck(this.color, this.weight);
+
+  // method
+  void PrintDuck() {
+    print("Duck color : $color, Duck weight : $weight");
   }
 }
